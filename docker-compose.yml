@@ -6,7 +6,7 @@ services:
       - .:/var/www/code
     working_dir: /var/www/code
     ports:
-      - "8000:80"
+      - "9000:80"
     environment:
       APACHE_LOG_DIR: '/var/log/apache2'
       DEBUG: 'true'
@@ -37,7 +37,7 @@ services:
     build: ./docker/node/.
     working_dir: /app
     volumes:
-      - ./nomadspos-frontend:/app
+      - .:/app
     links:
       - apache
     command: bash -c "ln -sf /node_modules node_modules && sleep infinity"
